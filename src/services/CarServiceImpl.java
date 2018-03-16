@@ -5,7 +5,11 @@ import model.Engine;
 
 public class CarServiceImpl implements CarService {
 
-    private Car car = new Car();
+    private Car car;
+
+    CarServiceImpl() {
+        car = new Car();
+    }
 
     @Override
     public Car carData(Engine engine) {
