@@ -9,10 +9,33 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Engine acuraEngine = new Engine("100 HP", "Gas");
+        //In order to create a car object, we required an Engine within our interface. So lets go ahead and
+        //create an engine:
+        Engine acuraEngine = new Engine("V6", "Gas");
+
+
+        //Here is where things get interesting.
+        //In order to create a car object, we use our interface, CarService and after creating a variable name,
+        //we set it equal to the CarFactory.buildCar(). buildCar() is a method within the CarFactory.
+        //This all works because the CarServiceImpl implements the CarService interface AND the buildCar() method
+        //returns a new instance of the CarServiceImpl
+
+        //This is where things get dicey, so I suggest studying this relationship between these classes carefully
+        //Mess with the code, break the code, and try to fix it again. You can always refer to the repo if you get stuck
+        //or can't fix it.
 
         CarService acura = CarFactory.buildCar();
 
+        //at this point our acura object is of type CarServiceImpl. It is not a car object... YET!
+
+        //in order to create a car object, we have to call our carData method!
+        //If you remember, our carData method is of type car and returns a new Car instance.
+        //You will also notice that you cannot invoke the carData method without injecting the engine type into its
+        //argument list. This is Dependency Injection.
+
+        //after you have typed acura.carData(acuraEngine), type the . operator. As soon as you do, the IDE will
+        //list all of the getters and setters that we had created in our Car class. What this means is we are NOW creating
+        //a Car object, but it is entirely encapsulated within our other classes.
         acura.carData(acuraEngine).setMake("Acura");
         acura.carData(acuraEngine).setModel("TL");
         acura.carData(acuraEngine).setDoors(4);

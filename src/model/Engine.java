@@ -1,5 +1,9 @@
 package model;
 
+/**
+ * See the notes in the Car class as they are essentially identical to this class.
+ * We are not including setters here because we set the values via the construcdtor
+ */
 public class Engine {
 
     private String engineSize;

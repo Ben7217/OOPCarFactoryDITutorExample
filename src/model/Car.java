@@ -1,19 +1,33 @@
 package model;
 
-import services.CarService;
-
 public class Car {
 
+    /**
+     * The below variables are instance variables. Each instance of the Car class has a separate copy
+     * of these variables, aka, each time you create a car object, your instance variables will
+     * have different values.
+     */
     private String make;
     private String model;
     private String year;
     private String tires;
     private double price;
-    private int doors;
+    private int doors; //primitive value: int. Java has 8 primitive values. int, double, float, char, byte, long, short, and boolean
     private int milage;
     private Engine engine;
 
+    /**
+     * Java creates a default (empty) constructor for every class. This default constructor will always be there
+     * unless you create your own constructor. When you create your own constructor, the default constructor is no
+     * longer accessible unless it is also created. In this case, we created a default constructor for demo purposes.
+     */
     public Car() {}
+
+    /**
+     * The following are getters and setters. They allow us to access our private instance variables.
+     * The set lets us set the value and the get lets us retrieve the value. To generate, right click and
+     * then select getters and setters.
+     */
 
     public double getPrice() {
         return price;
@@ -23,19 +37,6 @@ public class Car {
         this.price = price;
     }
 
-//    public Car (Engine engine) {
-//        this.engine = engine;
-//
-//    }
-
-//    public Car(String make, String model, String tires, int doors, int milage, Engine engine) {
-//        this.make = make;
-//        this.model = model;
-//        this.tires = tires;
-//        this.doors = doors;
-//        this.milage = milage;
-//        this.engine = engine;
-//    }
 
     public String getMake() {
         return make;
@@ -93,6 +94,13 @@ public class Car {
         this.engine = engine;
     }
 
+    /**
+     * Each class in the Java ecosystem extends the Object superclass. One of the methods inside that class
+     * is the toString method. The toString method in the Object class returns a reference to where the object
+     * exists in memory (objects live on the heap). In order to display the actual values of our instance variables
+     * within our class, we MUST Override the toString method.
+     *
+     */
 
     @Override
     public String toString() {
